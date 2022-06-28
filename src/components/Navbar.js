@@ -9,7 +9,7 @@ const Navbar = ({ children }) => {
             <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content flex flex-col">
                 {/* <!-- Navbar --> */}
-                <div className="w-full navbar bg-base-100 fixed top-0 z-50 lg:px-20">
+                <div className="w-full navbar bg-base-100 fixed top-0 z-50 lg:px-20 border-b-2">
                     <div data-aos="flip-up" className="flex-1 px-2 mx-2 font-serif font-bold text-2xl text-orange-500">Clean Co Live
                     </div>
 
