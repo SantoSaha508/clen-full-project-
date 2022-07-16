@@ -26,7 +26,7 @@ const Login = () => {
                         </label>
                     </div>
                     <div class="form-control mt-6">
-                        <button class="btn bg-teal-700">Login</button>
+                        <button class="btn bg-emerald-700 text-white">Login</button>
                     </div>
                     <div className='flex'>
                         <div className='mr-2'>
@@ -39,7 +39,7 @@ const Login = () => {
 
                     <div class="divider">OR</div>
 
-                    <button class="btn btn-wide bg-gray-700">
+                    <button class="btn glass hover:btn-primary">
                         <img width={80} src={google} alt="" />
                     </button>
                 </div>

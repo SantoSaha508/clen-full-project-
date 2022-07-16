@@ -10,6 +10,10 @@ import { useEffect } from 'react';
 // import About from './pages/About';
 import PrivateRoute from './authentication/PrivateRoute';
 import { PrivateRoutes } from './routes/PrivateRoutes';
+import AdminRoute from './authentication/AdminRoute';
+import Dashboard from './pages/Dashboard/Dashboard';
+import AddService from './pages/Dashboard/AddService';
+import AddAdmin from './pages/Dashboard/AddAdmin';
 
 
 
@@ -34,6 +38,16 @@ function App() {
                 <Route key={index} path={path} element={<Component></Component>}
                 />))
             }
+          </Route>
+
+          <Route element={<AdminRoute></AdminRoute>}>
+            <Route path="/dashboard" element={<Dashboard></Dashboard>}>
+
+              <Route path='add-service' element={<AddService></AddService>}></Route>
+
+              <Route path='add-admin' element={<AddAdmin></AddAdmin>}></Route>
+
+            </Route>
           </Route>
 
         </Routes>

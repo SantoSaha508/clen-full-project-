@@ -9,7 +9,7 @@ const PrivateRoute = () => {
         return <Navigate to="/login" state={{from: location}} replace ></Navigate>
     }
 
-    return Outlet;
+    return <Outlet/>;
 };
 
 export default PrivateRoute;

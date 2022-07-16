@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
+import useAdmin from '../hooks/useAdmin';
 
 const Navbar = ({ children }) => {
     const [dark, setDark] = useState(false);
+    const [admin] = useAdmin();
+    const {pathname} = useLocation();
 
     return (
         <div className="drawer drawer-end" data-theme={dark ? "dark" : "light"}>
@@ -10,6 +13,9 @@ const Navbar = ({ children }) => {
             <div className="drawer-content flex flex-col">
                 {/* <!-- Navbar --> */}
                 <div className="w-full navbar bg-base-100 fixed top-0 z-50 lg:px-20 border-b-2">
+                    {pathname.includes("dashboard") && (<label for="my-drawer-2" tabindex="0" class="btn btn-ghost btn-circle lg:hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
+                    </label>)} 
                     <div data-aos="flip-up" className="flex-1 px-2 mx-2 font-serif font-bold text-2xl text-orange-500">Clean Co Live
                     </div>
 
@@ -20,9 +26,11 @@ const Navbar = ({ children }) => {
                     </div>
 
                     <div className="flex-none hidden lg:block">
-                        <ul className=" menu menu-horizontal">
+                        <ul className=" menu menu-horizontal text-sm">
                             {/* <!-- Navbar menu content here --> */}
                             <li><NavLink to="/" className='rounded-lg mx-2 border-2 '>HOME</NavLink></li>
+                            {admin && <li><NavLink to="/dashboard/add-service" className='rounded-lg mx-2 border-2 '>DASHBOARD</NavLink>
+                            </li>}
                             <li><NavLink to="/services" className='rounded-lg border-2'>SERVICES</NavLink>
                             </li>
                             <li><NavLink to="/about" className='rounded-lg  mx-2 border-2'>ABOUT</NavLink></li>
@@ -59,11 +67,13 @@ const Navbar = ({ children }) => {
                 <label htmlFor="my-drawer-3" className="drawer-overlay"></label>
                 <ul className="menu p-4 overflow-y-auto w-80 bg-base-100">
                     {/* <!-- Sidebar content here --> */}
-                    <li><NavLink to="/" >HOME</NavLink></li>
+                    <li><NavLink to="/">HOME</NavLink></li>
+                    {admin && <li className='my-2'><NavLink to="/dashboard">DASHBOARD</NavLink>
+                    </li>}
                     <li><NavLink to="/services" >SERVICES</NavLink></li>
-                    <li><NavLink to="/about" >ABOUT</NavLink></li>
+                    <li className='my-2'><NavLink to="/about" >ABOUT</NavLink></li>
                     <li><NavLink to="/contact" >CONTACT</NavLink></li>
-                    <li><NavLink to="/login" >LOGIN</NavLink></li>
+                    <li className='my-2'><NavLink to="/login" >LOGIN</NavLink></li>
 
 
                     <div tabindex="0" class="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box">

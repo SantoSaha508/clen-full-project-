@@ -6,7 +6,6 @@ import SignUp from '../pages/SignUp';
 
 export const publicRoute = [
     { path: "/", name: "Home", Component: Home },
-    
     { path: "/contact", name: "Contact", Component: Contact },
     { path: "/login", name: "Login", Component: Login },
     { path: "/signup", name: "Signup", Component: SignUp }
